@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_075648) do
 
   create_table "words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "member_name_id", null: false
-    t.text "words", null: false
+    t.text "text", null: false
     t.integer "order_id", null: false
     t.bigint "report_id"
     t.datetime "created_at", precision: 6, null: false
