@@ -6,13 +6,12 @@
     <%= form_with model: @report, url: reports_path, local: true do |f| %>
       <div class="card p4" style="width: 100%;">
         
-
         <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
-            メンバー名
+            レポの種類
           </div>
           <div class="input-group mb-2 ml-3 d-flex align-items-center">
-            <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
+            <%= f.collection_select(:hope_id, Hope.all, :id, :name, {})  %>
           </div>
         </div>
 
@@ -35,23 +34,31 @@
         </div>
 
         <div class="input-group mb-3">
-          <div class="input-group mb-2 ml-3 d-flex align-items-center">
-            自分の言葉
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            順番
           </div>
-          <div class="col align-self-center mb-2">
-            <%= f.text_field :my_word, autofocus: true, autocomplete: "my_word", class:"form-control", placeholder: ""  %>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:order_id, Order.all, :id, :name, {})  %>
           </div>
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
-            メンバーの言葉
+            メンバー名
           </div>
-          <div class="col align-self-center mb-2">
-            <%= f.text_field :member_word, autofocus: true, autocomplete: "member_word", class:"form-control", placeholder: ""  %>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
           </div>
         </div>
 
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            会話内容
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :text, autofocus: true, autocomplete: "text", class:"form-control", placeholder: ""  %>
+          </div>
+        </div>
        
         <div class="actions">
           <%= f.submit "投稿する", class: "mb-3 btn btn-primary btn-lg"%>
