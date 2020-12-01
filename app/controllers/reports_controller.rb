@@ -22,9 +22,27 @@ class ReportsController < ApplicationController
     end
   end
 
+  def edit
+    @report = Report.find(params[:id])
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    if @report.update(report_update_params)
+      redirect_to report_path(@report)
+    else
+      render "edit"
+    end
+  end
+
+
   private
   
   def report_params
     params.permit(:hope_id, :event_day_id, :member_name_id, :sheets, :text).merge(user_id: current_user.id)
+  end
+
+  def report_update_params
+    params.require(:report).permit(:hope_id, :event_day_id, :member_name_id, :sheets, :text).merge(user_id: current_user.id)
   end
 end
