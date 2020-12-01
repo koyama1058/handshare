@@ -14,6 +14,7 @@
           <li class="list-group-item p-3">メンバー：<%= @report.MemberName.name%></li> 
           <li class="list-group-item p-3">内容：<%= @report.text%></li>
         </ul>
+        <%= link_to "削除",  report_path(@report), method: :delete %>
       </div>
     </div>
   </div>
