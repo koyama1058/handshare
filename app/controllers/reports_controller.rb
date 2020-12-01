@@ -3,6 +3,10 @@ class ReportsController < ApplicationController
   def index
     @reports = Report.all.order("id  DESC") 
   end
+  
+  def show
+    @report = Report.find(params[:id])
+  end
 
   def new
     report = Report.new
