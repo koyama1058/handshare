@@ -1,0 +1,61 @@
+<%= render 'shared/header' %>
+<body class="text-center">
+  <div class="pt-5">
+    <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
+    <h1 class="h3 m-3 font-weight-normal pt-4">新規投稿</h1>
+    <%= form_with model: @report, url: reports_path, local: true do |f| %>
+      <div class="card p4" style="width: 100%;">
+        
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            レポの種類
+          </div>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:hope_id, Hope.all, :id, :name, {})  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            日程
+          </div>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:event_day_id, EventDay.all, :id, :name, {})  %>
+          </div>
+        </div>
+
+         <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            メンバー
+          </div>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            枚数
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_field :sheets, autofocus: true, autocomplete: "sheets", class:"form-control", placeholder: ""  %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            会話内容
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_area :text, autofocus: true, autocomplete: "text", class:"form-control", placeholder: ""  %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "投稿する", class: "mb-3 btn btn-primary btn-lg"%>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</body>

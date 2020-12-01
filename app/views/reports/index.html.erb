@@ -1,17 +1,54 @@
 <%= render 'shared/header' %>
 
 <%# アイキャッチ画像 %>
-<div class="carousel-inner">
-  <div class="carousel-item">
-    <%= image_tag "Collage_Fotor.jpg", class:"d-block w-100" %>
-    <div class="carousel-caption d-none d-md-block">
-      <h3>さあ、世界を広げよう</h3>
-      <% if user_signed_in? %>
-      <%=link_to '新規投稿', new_report_path, class:"btn btn-lg btn-primary mb-4" %>
-      <% else %>
-      <%=link_to 'ログイン', new_user_session_path, class:"btn btn-lg btn-primary mb-4" %>
-      <% end%>
-      <p>  </p>
-    </div>
+<%# <div class="carousel-inner">
+  <div class="carousel-item"> %>
+    <%= image_tag "handshare_top.jpg", class:"d-block w-100" %>
+    <%# <div class="carousel-caption d-none d-md-block">
+      <h3>さあ、世界を広げよう</h3> %>
+      <%# <% if user_signed_in? %> %>
+      <%# <%=link_to '新規投稿', new_report_path, class:"btn btn-lg btn-primary mb-4" %> %>
+      <%# <% else %> %>
+      <%# <%=link_to 'ログイン', new_user_session_path, class:"btn btn-lg btn-primary mb-4" %> %>
+      <%# <% end%> %>
+      <%# <p>  </p> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
+
+<%# 投稿検索フォーム %>
+  <div class="m-3 text-center">
+    <h3 class="mb-3">投稿検索</h3>
+    <%# <%= search_form_for @search, url: posts_search_path do |f| %> %>
+      <%# <%= f.label :prefectures_id_eq, '都道府県', class:"mb-3" %> %>
+      <%# <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}) %> %>
+      <%# <%= f.label :tag_eq, 'タグ' %>
+      <%# <%= f.collection_select :name_eq, @post, :name, :name,  include_blank: '指定なし' %> 
+      <br>
+      <%# <%= f.submit '検索'%> %>
+    <%# <% end %> %>
   </div>
-</div>
+
+<div class="container">
+  <div class="row">
+    <h3 class="mb-3">最新レポ一覧</h3>
+    <%# <% @posts.each do |post| %> %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm rounded">
+          <div class="card" style="display: none">
+            <%# <% if post.image.present? %> %>
+              <%# <%= image_tag post.image, class:"card-img-top rounded", width:"100%", height:"210"%> %>
+            <%# <% else %> %>
+              <%# <%= image_tag "image.png", class:"card-img-top mb-4" unless @user.image.attached? %> %>
+            <%# <% end %> %>
+            <div class="card-body text-center">
+              <%# <h4 class="card-title"><%=post.title %></h4> %>
+              <%# <p class="card-text"><%=post.description %></p> %>
+              <%# <%= link_to '詳細を表示する', post_path(post.id), class:'btn btn-primary' %> %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%# <%end%> %>
+  </div>
+</div> 
