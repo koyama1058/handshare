@@ -24,6 +24,15 @@
           </div>
         </div>
 
+         <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            メンバー
+          </div>
+          <div class="input-group mb-2 ml-3 d-flex align-items-center">
+            <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
+          </div>
+        </div>
+
         <div class="input-group mb-3">
           <div class="input-group mb-2 ml-3  d-flex align-items-center">
             枚数
@@ -33,36 +42,16 @@
           </div>
         </div>
 
-        <div class="d-flex">
-          <div class="input-group mb-3">
-           
-            <div class="align-self-center" >
-              メンバー名
-            </div>
-            <div class="align-self-center">
-              <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
-            </div>
-            <div class="align-self-center">
-              会話内容
-            </div>
-              <%= f.text_area :text,  name:"text[]", autofocus: true, autocomplete: "text", class:"form-control", placeholder: ""  %>
+        <div class="input-group mb-3">
+          <div class="input-group mb-2 ml-3  d-flex align-items-center">
+            会話内容
+          </div>
+          <div class="col align-self-center mb-2">
+            <%= f.text_area :text, autofocus: true, autocomplete: "text", class:"form-control", placeholder: ""  %>
           </div>
         </div>
 
-        <div class="d-flex">
-          <div class="input-group mb-3">
-            <div class="align-self-center" >
-              メンバー名
-            </div>
-            <div class="align-self-center">
-              <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {})  %>
-            </div>
-            <div class="align-self-center">
-              会話内容
-            </div>
-              <%= f.text_area :text, name:"text[]", autofocus: true, autocomplete: "text", class:"form-control", placeholder: ""  %>
-          </div>
-        </div>
+
 
         <div class="actions">
           <%= f.submit "投稿する", class: "mb-3 btn btn-primary btn-lg"%>
