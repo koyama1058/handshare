@@ -42,6 +42,9 @@ class ReportsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @reports = Report.where(member_name_id: params[:member_name_id])
+  end
 
   private
   
