@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
 
   def index
-
   end
 
   def new
@@ -10,7 +9,6 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-    binding.pry
     if @report.valid?
       @report.save
       redirect_to root_path
