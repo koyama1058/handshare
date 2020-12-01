@@ -6,23 +6,26 @@
 <%# 投稿検索フォーム %>
   <div class="m-3 text-center">
     <h3 class="mb-3">投稿検索</h3>
-    <%# <%= search_form_for @search, url: posts_search_path do |f| %> %>
-      <%# <%= f.label :prefectures_id_eq, '都道府県', class:"mb-3" %> %>
-      <%# <%= f.collection_select(:prefectures_id, Prefectures.all, :id, :name, {}) %> %>
-      <%# <%= f.label :tag_eq, 'タグ' %>
-      <%# <%= f.collection_select :name_eq, @post, :name, :name,  include_blank: '指定なし' %> 
-      <br>
-      <%# <%= f.submit '検索'%> %>
-    <%# <% end %> %>
+    <%= form_with(url: search_reports_path, local: true, method: :get, class: "search-form") do |f| %>
+      <%= f.collection_select(:member_name_id, MemberName.all, :id, :name, {}) %>
+      <%= f.submit "検索", class: "search-btn" %>
+    <% end %>
   </div>
 
 <div class="m-3 text-center">
     <h3 class="mb-3 mt-5 text-center">最新レポ一覧</h3>
-    <% @reports.each do |report| %>
-    <div class="border border-success" >
-      <%=link_to report.text, report_path(report.id), class:"card-link" %>
-      <%=link_to report.sheets, report_path(report.id), class:"card-link" %>
-      <%=link_to  report.MemberName.name, report_path(report.id), class:"card-link" %>
+    <div class="d-flex justify-content-center">
+      <% @reports.each do |report| %>
+        <div class="col-md-2 mb-5">
+            <div class="border border-success" >
+              <div class="card-body text-center">
+                <p class="card-text">レポの種類:<%=report.Hope.name %></p>
+                <p class="card-text">枚数:<%=report.sheets %></p>
+                <p class="card-text">メンバー:<%=report.MemberName.name%></p>
+                <%= link_to '詳細を表示する', report_path(report), class:'btn btn-primary' %>
+              </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
 </div> 
