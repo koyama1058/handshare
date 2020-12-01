@@ -1,0 +1,19 @@
+<%= render 'shared/header' %>
+<body class="text-center">
+
+  <div class="pt-5">
+    <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
+      <h1 class="h3 m-2 font-weight-normal pt-4">投稿詳細</h1>
+        <ul class="list-group list-group-flush text-left">
+          <li class="list-group-item p-3">投稿者：<%= @report.user.nickname %></li>
+          </li>
+          <li class="list-group-item p-3">レポの種類：<%= @report.Hope.name %></li>
+          <li class="list-group-item p-3">日程：<%= @report.EventDay.name %></li>
+          <li class="list-group-item p-3">枚数：<%= @report.sheets %></li>
+          <li class="list-group-item p-3">メンバー：<%= @report.MemberName.name%></li> 
+          <li class="list-group-item p-3">内容：<%= @report.text%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
