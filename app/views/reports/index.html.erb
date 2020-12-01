@@ -22,7 +22,7 @@
     <div class="border border-success" >
       <%=link_to report.text, report_path(report.id), class:"card-link" %>
       <%=link_to report.sheets, report_path(report.id), class:"card-link" %>
-      <%=link_to  MemberName.find(report.member_name_id).name, report_path(report.id), class:"card-link" %>
+      <%=link_to  report.MemberName.name, report_path(report.id), class:"card-link" %>
     </div>
     <% end %>
 </div> 
