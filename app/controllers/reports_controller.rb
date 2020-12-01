@@ -24,6 +24,7 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+    redirect_to root_path if current_user.id != @report.id
   end
 
   def update
