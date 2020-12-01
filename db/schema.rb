@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_075648) do
+ActiveRecord::Schema.define(version: 2020_11_27_084841) do
 
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "hope_id", null: false
     t.integer "event_day_id", null: false
     t.integer "sheets", null: false
+    t.integer "member_name_id", null: false
+    t.text "text", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,16 +37,5 @@ ActiveRecord::Schema.define(version: 2020_11_30_075648) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "member_name_id", null: false
-    t.text "text", null: false
-    t.integer "order_id", null: false
-    t.bigint "report_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["report_id"], name: "index_words_on_report_id"
-  end
-
   add_foreign_key "reports", "users"
-  add_foreign_key "words", "reports"
 end
