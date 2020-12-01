@@ -4,6 +4,7 @@
   <div class="pt-5">
     <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
       <h1 class="h3 m-2 font-weight-normal pt-4">投稿詳細</h1>
+        <%= link_to "編集",  edit_report_path(@report) %>
         <ul class="list-group list-group-flush text-left">
           <li class="list-group-item p-3">投稿者：<%= @report.user.nickname %></li>
           </li>
