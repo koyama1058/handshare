@@ -4,7 +4,9 @@
   <div class="pt-5">
     <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
       <h1 class="h3 m-2 font-weight-normal pt-4">投稿詳細</h1>
-        <%= link_to "編集",  edit_report_path(@report) %>
+        <%if current_user.id == @report.user.id %>
+          <%= link_to "編集",  edit_report_path(@report) %>
+        <% end %>
         <ul class="list-group list-group-flush text-left">
           <li class="list-group-item p-3">投稿者：<%= @report.user.nickname %></li>
           </li>
@@ -14,7 +16,9 @@
           <li class="list-group-item p-3">メンバー：<%= @report.MemberName.name%></li> 
           <li class="list-group-item p-3">内容：<%= @report.text%></li>
         </ul>
-        <%= link_to "削除",  report_path(@report), method: :delete %>
+        <%if current_user.id == @report.user.id %>
+          <%= link_to "削除",  report_path(@report), method: :delete %>
+        <% end %>
       </div>
     </div>
   </div>
