@@ -36,6 +36,13 @@ class ReportsController < ApplicationController
     end
   end
 
+  def destroy
+    @report = Report.find(params[:id])
+    redirect_to root_path if current_user.id != @report.id
+    @report.destroy
+    redirect_to root_path
+  end
+
 
   private
   
