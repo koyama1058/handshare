@@ -1,25 +1,25 @@
 <%= render 'shared/header' %>
 
-<div class="m-3 text-center">
+<div class="m-3 text-center mb-5">
   <h3 class="mb-3 mt-5 text-center"><%= @user.nickname %>さんのレポ一覧</h3>
   <div class="container">
       <div class="row justify-content-center">
         <div class="card-deck">
           <% @reports.each do |report| %>
-              <div class="col-xs-10 col-sm-6 col-md-3">
-                <div class="card-deck">
-                  <div class="card" style="width: 250px;">
-                    <div class="border border-success" >
-                      <div class="card-body text-center">
-                        <p class="card-text">レポの種類:<%=report.Hope.name %></p>
-                        <p class="card-text">枚数:<%=report.sheets %></p>
-                        <p class="card-text">メンバー:<%=report.MemberName.name%></p>
-                        <%= link_to '詳細を表示する', report_path(report), class:'btn btn-primary' %>
-                      </div>
+            <div class="col-xs-10 col-sm-6 col-md-3">
+              <div class="card-deck">
+                <div class="card" style="width: 250px;">
+                  <div class="border border-success" >
+                    <div class="card-body text-center">
+                      <p class="card-text">レポの種類:<%=report.Hope.name %></p>
+                      <p class="card-text">枚数:<%=report.sheets %></p>
+                      <p class="card-text">メンバー:<%=report.MemberName.name%></p>
+                      <%= link_to '詳細を表示する', report_path(report), class:'btn btn-primary' %>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
           <% end %>
         </div>
       </div>
