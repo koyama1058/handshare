@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @reports = Report.all.order("id  DESC").page(params[:page]).per(12)
