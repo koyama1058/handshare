@@ -1,24 +1,48 @@
-# README
+# HandshareApp README
+開発をdocker・docker-composeを用いて行いました。dockerを用いた開発を目的としたためアプリは非常に簡単な作りとしました。
+既存のアプリへのdocker導入は別のアプリで行いましたがアプリの作成段階からdockerを導入することでgemの永続化や永続化したデータをgitへ反映させないようにするなど新たな気付きをえられました。今後はunicornやnginxをdockerに組み込むための勉強を行っていきます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- rubyのdockerfile
+![スクリーンショット 2020-12-02 14 22 33](https://user-images.githubusercontent.com/71957380/100831842-e7eb3180-34a9-11eb-88c6-d586c2a0e267.png)
 
-Things you may want to cover:
+- docker-compose.yml
+![スクリーンショット 2020-12-02 14 22 17](https://user-images.githubusercontent.com/71957380/100831840-e588d780-34a9-11eb-8f95-7431071b285a.png)
 
-* Ruby version
 
-* System dependencies
+## 概要
+握手会のレポートを共有するためのアプリです。
 
-* Configuration
 
-* Database creation
+## アプリURL
+https://handshare.herokuapp.com/
 
-* Database initialization
 
-* How to run the test suite
+## 使用技術
+ruby / rails / HTML / CSS / Bootstrap / git / github / docker 
 
-* Services (job queues, cache servers, search engines, etc.)
+## テスト用アカウント
+ユーザーの新規登録画面及びログイン画面にテストユーザーログインボタンがあります。そちらからログインできます。
 
-* Deployment instructions
 
-* ...
+## 利用方法
+ログイン後、レポを投稿し、他のユーザーが投稿したものを閲覧します。
+
+
+## 目指した課題解決
+従来握手会のレポートはツイッターで共有するものでした。しかし、ツイッターで共有する場合には検索が難しかったり、時間が経つとツイートを見つけにくくなるという問題点がありました。そのため握手会のレポートの投稿・共有に特化したサイトを作成し、検索機能をつけることで問題の解決を目指しました。
+
+
+## 洗い出した要件
+- ユーザー登録機能
+- ログイン機能
+- ユーザー詳細表示機能
+- 新規投稿機能
+- 投稿詳細機能
+- 投稿編集機能
+- 投稿削除機能
+- 投稿検索機能(メンバーの名前による)
+- ページネーション機能
+
+## データベース設計・今後実装したい機能
+![スクリーンショット 2020-12-02 14 19 43](https://user-images.githubusercontent.com/71957380/100831621-7f9c5000-34a9-11eb-9a74-7226e9516a0f.png)
+
