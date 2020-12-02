@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
 
   def index
-    @reports = Report.all.order("id  DESC") 
+    @reports = Report.all.order("id  DESC").page(params[:page]).per(12)
   end
   
   def show
