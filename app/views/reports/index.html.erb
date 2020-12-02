@@ -18,7 +18,7 @@
       <div class="row justify-content-center">
         <div class="card-deck">
           <% @reports.each do |report| %>
-            <div class="col-xs-10 col-sm-6 col-md-3">
+            <div class="col-xs-10 col-sm-6 col-md-4 mb-4">
               <div class="card-deck">
                 <div class="card" style="width: 250px;">
                   <div class="border border-success" >
@@ -34,6 +34,9 @@
             </div>
           <% end %>
         </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= paginate @reports %>
       </div>
     </div>
 </div> 
