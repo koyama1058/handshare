@@ -8,7 +8,7 @@
           <%= link_to "編集",  edit_report_path(@report) %>
         <% end %>
         <ul class="list-group list-group-flush text-left">
-          <li class="list-group-item p-3">投稿者：<%= @report.user.nickname %></li>
+          <li class="list-group-item p-3">投稿者：<%=link_to @report.user.nickname, user_path(@report.user)%></li>
           </li>
           <li class="list-group-item p-3">レポの種類：<%= @report.Hope.name %></li>
           <li class="list-group-item p-3">日程：<%= @report.EventDay.name %></li>
