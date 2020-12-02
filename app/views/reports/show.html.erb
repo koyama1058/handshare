@@ -1,8 +1,8 @@
 <%= render 'shared/header' %>
 <body class="text-center">
 
-  <div class="pt-5">
-    <div class="container shadow p-3 bg-white rounded" style="width: 50%;">
+  <div class="row justify-content-around">
+    <div class="col-xs-10  col-md-8 shadow p-3 bg-white rounded">
       <h1 class="h3 m-2 font-weight-normal pt-4">投稿詳細</h1>
         <%if current_user.id == @report.user.id %>
           <%= link_to "編集",  edit_report_path(@report) %>
